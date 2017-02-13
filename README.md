@@ -1,6 +1,6 @@
 ## Introduction To Node
 
-Learning node by doing, and keeping track of it with github
+Learn node in this linear code along. It explores HTTP, express, params, posting data, and EJS templating engine.
 
 ----
 ### First Commit: HTTP
