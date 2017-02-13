@@ -24,3 +24,39 @@ __and then we committed our code__
 `git push origin master`
 
 ----
+#### Second Commit
+We are making our project a node project by adding a `package.json` file.
+
+Run command `npm init` to create the JSON file.
+
+Next, we installed the NPM package `express`
+
+Run command `npm install --save express`
+
+*the dash dash save, writes express to our package.json*
+
+1) Imported express and used the constructor to make our app.
+2) Defined an endpoint `howdy`, which gives a response of some text.
+3) Created a server on PORT 3000
+
+```
+var express = require('express');
+var app = express();
+
+app.get('/howdy', function(req, res){
+  res.end("We made it!");
+});
+
+var server = app.listen(3000, function(){
+  console.log('Server 🔥🔥🔥ed up on PORT 3000');
+});
+```
+then we committed our code
+
+`git add -A`
+
+`git commit -m "Add package.json, user express to configure our server"`
+
+`git push origin master`
+
+----

@@ -1,8 +1,10 @@
-var http = require('http');
+var express = require('express');
+var app = express();
 
-http.createServer(function(request, response){
-  response.writeHead(200, { 'Content-Type': 'text/plain' })
-  response.end('Hello world!')
-}).listen(3000);
+app.get('/howdy', function(req, res){
+  res.end("We made it!");
+});
 
-console.log("Server is listening on PORT 3000");
+var server = app.listen(3000, function(){
+  console.log('Server 🔥🔥🔥ed up on PORT 3000');
+});
