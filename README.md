@@ -151,3 +151,41 @@ app.use(bodyParser.urlencoded({ extended: true }));
 `nodmon server.js`
 
 4) Head to Postman to test your endpoint `localhost:3000/login` (dont forget to select x-www-form-urlencoded)
+
+----
+
+### Sixth Commit: EJS templating engine
+
+EJS stands for embedded javascript. Initially we will have node serve up `ejs` files that will look exactly like `HTML`. Eventually we will dynamically render variables and data right inside of our HTML, this why it is called a 'templating engine'.
+
+1) Install ejs
+`npm install --save ejs`
+
+2) Tell `server.js` to use ejs
+
+`app.set('view engine', 'ejs');`
+
+Next we have to create an ejs page (remembering that our ejs page will be roughly equivalent to an html page.) EJS pages are required to live in the `views/` directory.
+
+3) `mkdir views`
+
+4) `touch index.ejs`   -> go and add base HTML to this file.
+
+5) Create a route that serves (aka renders) our `index.ejs` page
+```js
+app.get('/', function(req, res){
+  res.render('index')
+});
+```
+6) Start your server and go to `localhost:3000` to view your ejs page.
+
+Before you commit, make a second route 'about', that serves an  about
+ejs page.
+
+```js
+app.get('/about-me', function(req, res){
+  res.render('about')
+});
+```
+
+----

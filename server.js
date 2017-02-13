@@ -4,24 +4,14 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
 
-app.get('/cheer', function(req, res){
-  res.end("Its a beautiful day!!");
+app.get('/', function(req, res){
+  res.render('index')
 });
 
-app.get('/jeer', function(req, res){
-  res.end("Its a beautiful day!! -U2");
-});
-
-app.get('/greeting/:name', function(req, res){
-  res.send("How are you " + req.params.name);
-});
-
-app.post('/login', function(req, res) {
-  var name = req.body.name;
-  var password = req.body.password;
-  var user = { name: name, password: password };
-  res.json(user);
+app.get('/about-me', function(req, res){
+  res.render('about')
 });
 
 var server = app.listen(3000, function(){
