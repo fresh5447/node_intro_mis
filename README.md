@@ -6,6 +6,7 @@ Learn node in this linear code along. It explores HTTP, express, params, posting
 ### First Commit: HTTP
 Using the node module `http`, to create a very simple node server. Run `node server.js` to start a server on port 3000.
 ```js
+// server.js
 var http = require('http');
 
 http.createServer(function(request, response){
@@ -15,7 +16,7 @@ http.createServer(function(request, response){
 
 console.log("Server is listening on PORT 3000");
 ```
-__and then we committed our code__
+__dont forget to commit your code__
 
 `git add -A`
 
@@ -42,6 +43,7 @@ Run command `npm install --save express`
 3) Created a server on PORT 3000
 
 ```js
+// server.js
 var express = require('express');
 var app = express();
 
@@ -54,7 +56,7 @@ var server = app.listen(3000, function(){
 });
 
 ```
-then we committed our code
+dont forget to commit your code
 
 `git add -A`
 
@@ -77,6 +79,7 @@ Now we can start our serve with `nodemon` and our server will automatically rest
 1) Make two new endpoints, one that serves a sad response, and one that serves a happy response.
 
 ```js
+// server.js
 app.get('/cheer', function(req, res){
   res.end("Its a beautiful day!!");
 });
@@ -93,6 +96,7 @@ app.get('/jeer', function(req, res){
 
 We can create functions that can take a parameter, and do something with that value:
 ```js
+// server.js
 function greeting(name) {
   return "Hello " + name
 }
@@ -101,6 +105,7 @@ We have this same ability when we define API endpoints
 Add this endpoint to `server.js`, and pass in a value for the name param.
 
 ```js
+// server.js
 app.get('/greeting/:name', function(req, res){
   res.send("How are you " + req.params.name);
 });
@@ -123,6 +128,7 @@ __Postman__ is a tool that enables us to easily test our APIs, for our example i
 1) Create the login API endpoint. This will be a `POST` method since we are sending data to the server.
 
 ```js
+// server.js
 app.post('/login', function(req, res) {
   var name = req.body.name;
   var password = req.body.password;
@@ -142,6 +148,7 @@ require it in your `server.js`
 configure your application to use it
 
 ```js
+// server.js
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 ```
@@ -173,6 +180,7 @@ Next we have to create an ejs page (remembering that our ejs page will be roughl
 
 5) Create a route that serves (aka renders) our `index.ejs` page
 ```js
+// server.js
 app.get('/', function(req, res){
   res.render('index')
 });
@@ -183,6 +191,7 @@ Before you commit, make a second route 'about', that serves an  about
 ejs page.
 
 ```js
+// server.js
 app.get('/about-me', function(req, res){
   res.render('about')
 });
@@ -193,6 +202,7 @@ app.get('/about-me', function(req, res){
 ### Seventh Commit: Displaying data with EJS
 When we define our endpoint that renders an EJS page, we can optionally give that EJS page access to specific data. Lets do a simple example:
 ```js
+// server.js
   app.get('/', function(req, res){
     res.render('index', { name: "Douglas" });
   });
@@ -206,6 +216,7 @@ To display the data in our ejs, update your `index.ejs`
 Lets do a more realistic example, where we pass an array full of data to our render method. Then we will loop through this data in our EJS page.
 Update the `about` route.
 ```js
+// server.js
 var hobbies = ["skiing", "biking", "fishing", "golfing"];
 
 app.get('/about-me', function(req, res){
