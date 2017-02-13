@@ -5,6 +5,11 @@
     <title>Learning Node</title>
   </head>
   <body>
-    <h1> You found the about page!!!!! </h1>
+    <h1> Check out all my sweeeet hobbies! </h1>
+    <ul>
+      <% for(var i = 0; i < data.length; i++){ %>
+        <li> <%= data[i]%> </li>
+      <% } %>
+    </ul>
   </body>
 </html>

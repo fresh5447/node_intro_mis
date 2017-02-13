@@ -189,3 +189,34 @@ app.get('/about-me', function(req, res){
 ```
 
 ----
+
+### Seventh Commit: Displaying data with EJS
+When we define our endpoint that renders an EJS page, we can optionally give that EJS page access to specific data. Lets do a simple example:
+```js
+  app.get('/', function(req, res){
+    res.render('index', { name: "Douglas" });
+  });
+```
+Now our `index.ejs` has access to whatever data is passed in the aboe route, via the object.
+
+To display the data in our ejs, update your `index.ejs`
+```HTML
+    <h1> Welcome <%= name %> </h1>
+```
+Lets do a more realistic example, where we pass an array full of data to our render method. Then we will loop through this data in our EJS page.
+Update the `about` route.
+```js
+var hobbies = ["skiing", "biking", "fishing", "golfing"];
+
+app.get('/about-me', function(req, res){
+  res.render('about', { data: hobbies })
+});
+```
+We now have access to our array of hobbies in `about.ejs`, let's build a for loop, ejs style, to display this data.
+```ejs
+<ul>
+  <% for(var i = 0; i < data.length; i++){ %>
+    <li> <%= data[i]%> </li>
+  <% } %>
+</ul>
+```
