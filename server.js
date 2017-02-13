@@ -1,8 +1,12 @@
 var express = require('express');
 var app = express();
 
-app.get('/howdy', function(req, res){
-  res.end("We made it!");
+app.get('/cheer', function(req, res){
+  res.end("Its a beautiful day!!");
+});
+
+app.get('/jeer', function(req, res){
+  res.end("Its a beautiful day!! -U2");
 });
 
 var server = app.listen(3000, function(){

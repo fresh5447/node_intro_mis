@@ -60,3 +60,28 @@ then we committed our code
 `git push origin master`
 
 ----
+#### Third Commit
+Up until now we have to kill our server, and restart our server to see our new changes in our code. We can use a tool called `nodemon`, that will make this process much easier.
+
+`sudo npm install -g nodemon`
+
+*the dash g flag tells NPM to install nodemon globally on our computer. Meaning it is not specific to this project. When install things globally, it's a pretty big deal, we need to prefix the command with sudo*
+
+Now we can start our serve with `nodemon` and our server will automatically restart every time we save our codebase.
+
+`nodemon server.js`
+
+1) Make two new endpoints, one that serves a sad response, and one that serves a happy response.
+
+```
+app.get('/cheer', function(req, res){
+  res.end("Its a beautiful day!!");
+});
+
+app.get('/jeer', function(req, res){
+  res.end("Its a beautiful day!! -U2");
+});
+```
+
+2) Commit your code. *we will no longer detail the steps for a commit*
+----
