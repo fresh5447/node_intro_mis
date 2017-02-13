@@ -1,11 +1,11 @@
-### Introduction To Node
+## Introduction To Node
 
 Learning node by doing, and keeping track of it with github
 
 ----
-#### First Commit: HTTP
+### First Commit: HTTP
 Using the node module `http`, to create a very simple node server. Run `node server.js` to start a server on port 3000.
-```
+```js
 var http = require('http');
 
 http.createServer(function(request, response){
@@ -24,7 +24,7 @@ __and then we committed our code__
 `git push origin master`
 
 ----
-#### Second Commit: Express
+### Second Commit: Express
 We are making our project a node project by adding a `package.json` file.
 
 Run command `npm init` to create the JSON file.
@@ -36,10 +36,12 @@ Run command `npm install --save express`
 *the dash dash save, writes express to our package.json*
 
 1) Imported express and used the constructor to make our app.
+
 2) Defined an endpoint `howdy`, which gives a response of some text.
+
 3) Created a server on PORT 3000
 
-```
+```js
 var express = require('express');
 var app = express();
 
@@ -50,6 +52,7 @@ app.get('/howdy', function(req, res){
 var server = app.listen(3000, function(){
   console.log('Server 🔥🔥🔥ed up on PORT 3000');
 });
+
 ```
 then we committed our code
 
@@ -60,7 +63,7 @@ then we committed our code
 `git push origin master`
 
 ----
-#### Third Commit: Nodemon
+### Third Commit: Nodemon
 Up until now we have to kill our server, and restart our server to see our new changes in our code. We can use a tool called `nodemon`, that will make this process much easier.
 
 `sudo npm install -g nodemon`
@@ -73,7 +76,7 @@ Now we can start our serve with `nodemon` and our server will automatically rest
 
 1) Make two new endpoints, one that serves a sad response, and one that serves a happy response.
 
-```
+```js
 app.get('/cheer', function(req, res){
   res.end("Its a beautiful day!!");
 });
@@ -86,10 +89,10 @@ app.get('/jeer', function(req, res){
 **we will no longer detail the steps for a commit**
 
 ----
-#### Fourth Commit: Params
+### Fourth Commit: Params
 
 We can create functions that can take a parameter, and do something with that value:
-```
+```js
 function greeting(name) {
   return "Hello " + name
 }
@@ -97,7 +100,7 @@ function greeting(name) {
 We have this same ability when we define API endpoints
 Add this endpoint to `server.js`, and pass in a value for the name param.
 
-```
+```js
 app.get('/greeting/:name', function(req, res){
   res.send("How are you " + req.params.name);
 });
@@ -106,7 +109,7 @@ app.get('/greeting/:name', function(req, res){
 
 ----
 
-#### Fifth Commit: req.body
+### Fifth Commit: `req.body`
 
 If you have ever been on a website and filled out a form, when you hit the 'submit' button, you are actually submitting data to the server. This data or information, gets submitted to the server in an object req.body
 
@@ -119,7 +122,7 @@ __Postman__ is a tool that enables us to easily test our APIs, for our example i
 
 1) Create the login API endpoint. This will be a `POST` method since we are sending data to the server.
 
-```
+```js
 app.post('/login', function(req, res) {
   var name = req.body.name;
   var password = req.body.password;
@@ -138,8 +141,10 @@ require it in your `server.js`
 
 configure your application to use it
 
-`app.use(bodyParser.json())`
-`app.use(bodyParser.urlencoded({ extended: true }));`
+```js
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+```
 
 3) Make make sure your server is running.
 
