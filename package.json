@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/fresh5447/node_intro_mis#readme",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "express": "^4.14.1"
   }
 }

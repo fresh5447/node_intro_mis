@@ -105,3 +105,44 @@ app.get('/greeting/:name', function(req, res){
 
 
 ----
+
+#### Fifth Commit: req.body
+
+If you have ever been on a website and filled out a form, when you hit the 'submit' button, you are actually submitting data to the server. This data or information, gets submitted to the server in an object req.body
+
+In the following example, we are going to create an endpoint to simulate a user login form. The information being submitted to the server will be name, and password. aka `req.body.name` && `req.body.password`
+
+but first...
+
+__Postman__ is a tool that enables us to easily test our APIs, for our example it will enable us to test the functionality of a form being submitted, without actually having to create the UI for the form.
+
+
+1) Create the login API endpoint. This will be a `POST` method since we are sending data to the server.
+
+```
+app.post('/login', function(req, res) {
+  var name = req.body.name;
+  var password = req.body.password;
+  var user = { name: name, password: password };
+  res.json(user);
+});
+```
+
+2) Install 'body-parser' (allows our form to submit data)
+
+`npm install --save body-parser`
+
+require it in your `server.js`
+
+`var bodyParser = require('body-parser')`
+
+configure your application to use it
+
+`app.use(bodyParser.json())`
+`app.use(bodyParser.urlencoded({ extended: true }));`
+
+3) Make make sure your server is running.
+
+`nodmon server.js`
+
+4) Head to Postman to test your endpoint `localhost:3000/login` (dont forget to select x-www-form-urlencoded)
