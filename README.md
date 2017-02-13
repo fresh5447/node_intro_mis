@@ -82,6 +82,7 @@ app.get('/jeer', function(req, res){
   res.end("Its a beautiful day!! -U2");
 });
 ```
+2) Commit your code. 
+**we will no longer detail the steps for a commit**
 
-2) Commit your code. *we will no longer detail the steps for a commit*
 ----
